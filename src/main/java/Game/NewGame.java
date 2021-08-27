@@ -29,22 +29,31 @@ public class NewGame {
         System.out.println("cheat for demonstration " + number); // simple cheat to help us to find quickly the number during demo
     }
 
-    // Checking for duplicates
-    private boolean hasDuplicates(int number) {
+//    // Checking for duplicates
+//    private boolean hasDuplicates(int number) {
+//        boolean[] digits = new boolean[10];
+//
+//        while (number > 10) {
+//            int last = number % 10;
+//
+//            if (digits[last])
+//                return true;
+//
+//            digits[last] = true;
+//            number = number / 10;
+//        }
+//        return false;
+//    }
+    //Checking for duplicates
+    public static boolean hasDuplicates(int number) {
         boolean[] digits = new boolean[10];
-
-        while (number > 10) {
-            int last = number % 10;
-
-            if (digits[last])
-                return true;
-
-            digits[last] = true;
-            number = number / 10;
+        while(number>0) {
+            if(digits[number%10]) return true;
+            digits[number%10] = true;
+            number /= 10;
         }
         return false;
     }
-
 
     // a method that returns bulls and cows
     private int[] bullsAndCows(int entered) {
